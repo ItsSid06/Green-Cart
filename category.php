@@ -55,7 +55,7 @@ $result=select("SELECT DISTINCT category FROM items" );
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-					 <a class="navbar-brand" href="index.php">GREEN CART</a>
+                    <a class="navbar-brand" href="index.php"> <i class="fa fa-shopping-basket"> </i> GREEN CART </a>
                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->

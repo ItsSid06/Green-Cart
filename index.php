@@ -140,11 +140,11 @@ $('.navbar-light .dmenu').hover(function () {
 <select class="form-control" name="category">
 <option>Select</option>
 <option value="FruitVegetables">Fruits & Vegetables</option>
-<option value="FoodgrainsoilMasala">Foodgrains, oil & Masala</option>
-<option value="BakerycakesDairy">Bakery, cakes & Dairy</option>
+<option value="FoodgrainsoilMasala">Foodgrains, Oil & Masala</option>
+<option value="BakerycakesDairy">Bakery, Cakes & Dairy</option>
 <option value="SnacksBrandedFoods">Snacks & Branded Foods</option>
 <option value="Beverage">Beverage</option>
-<option value="Cleaninghousehold">Cleaning & household</option>
+<option value="Cleaninghousehold">Cleaning & ousehold</option>
 </select>
 
 
