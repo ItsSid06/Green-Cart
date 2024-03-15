@@ -16,6 +16,63 @@ require_once"dbconfig.php";
      <link rel="icon" type="image/x-icon" href="img\favicon.PNG">
 
     <link href="css/responsive/responsive.css" rel="stylesheet">
+
+    <style>
+
+        .header_area{
+            
+            position: fixed;
+	top: 0; left: 0; right: 0;
+    z-index: 1000;
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 9%;
+	background: #fff;
+	box-shadow: var(--box-shadow);
+    
+
+    .header_area{
+        color : #341a79;
+    background-color: #ffffff;
+    height: 80px;
+    z-index: 9999;
+    border-bottom: 1px solid transparent;
+}
+    
+        }
+        
+         .dorne-signin-btn .nav-link {
+        color: black;
+    }
+        .navbar-brand {
+            color: #000
+        }
+        .navbar-brand i.fa-shopping-basket {
+            color: #198754;
+        }
+
+        .bg-img {
+            height:500px;
+        }
+        
+        .navbar-brand:hover{
+            color :#FFA500;
+        }
+
+        .nav-link:hover{
+            color :#FFA500;
+        }
+
+        .navbar-brand {
+        color: #000;
+    }
+
+    .navbar-brand i.fa-shopping-basket {
+        color: #198754;
+    }
+    </style>
+
 <script src="jquery.min.js"></script>
 	<script>  
  $(document).ready(function(){  
@@ -56,7 +113,7 @@ $('.navbar-light .dmenu').hover(function () {
         <div class="dorne-load"></div>
     </div>
 
-   <header class="header_area" id="header">
+   <header class="header_area bg-#000" id="header">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
@@ -81,7 +138,7 @@ $('.navbar-light .dmenu').hover(function () {
 							   {
 								   ?><a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                               
-								<a class="nav-link" href="mycart.php">My Cart</a>
+								<a class="nav-link" href="mycart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart</a>
 								<a class="nav-link" href="category.php">Category</a>
                                 <a class="nav-link" href="contact.php">Contact</a>
                               
@@ -94,12 +151,12 @@ $('.navbar-light .dmenu').hover(function () {
 							   }
 								   else
 								   {
-									   ?>
+									?>
 									   
 								<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 								<a class="nav-link" href="category.php">Category</a>
-                                <a href="ragister.php">Sign In  or Register</a>
-                                <a href="contact.php">Contact Us</a>
+                                <a class="nav-link" href="ragister.php">Sign In or Register</a>
+                                <a class="nav-link" href="contact.php">Contact Us</a>
                               
 								   <?php
 								   }
@@ -115,7 +172,7 @@ $('.navbar-light .dmenu').hover(function () {
             </div>
         </div>
     </header>
-     <section class="dorne-welcome-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg);">
+     <section class="dorne-welcome-area bg-img" style="background-image: url(img/bg-img/hero-bg.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6"></br></br>
@@ -139,12 +196,13 @@ $('.navbar-light .dmenu').hover(function () {
   <div class="form-group ">
 <select class="form-control" name="category">
 <option>Select</option>
-<option value="FruitVegetables">Fruits & Vegetables</option>
-<option value="FoodgrainsoilMasala">Foodgrains, Oil & Masala</option>
-<option value="BakerycakesDairy">Bakery, Cakes & Dairy</option>
-<option value="SnacksBrandedFoods">Snacks & Branded Foods</option>
+<option value="Fruit Vegetables">Fruits & Vegetables</option>
+<option value="Food Grains & Oil"> Food Grains & Oil</option>
+<!-- <option value="BAKERY & CAKES">BAKERY & CAKES</option> -->
+<option value="Bakery & Cakes ">Bakery Cakes & Dairy</option>
+<option value="SnacksBrandedFoods">Snacks & Foods</option>
 <option value="Beverage">Beverage</option>
-<option value="Cleaninghousehold">Cleaning & ousehold</option>
+<option value="CLEANING HOUSE HOLD">CLEANING HOUSE HOLD</option>
 </select>
 
 
@@ -224,7 +282,45 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='FoodgrainsoilMasala'");
+					 $result=select("select * from items where category='Food Grainsoil Masala'");
+					 while($r=mysqli_fetch_array($result))
+					 {
+						 extract($r);
+					 ?>
+                        <a href="view_detail.php?id=<?=$itemid?>"><div class="single-features-area">
+                            <img src="admin/images/<?=$image?>" style="height:200px;width:400px">
+                            <!-- Price -->
+                            <div class="price-start">
+                                </div>
+                            <div class="feature-content d-flex align-items-center justify-content-between" style="height:150px">
+                                <div class="feature-title">
+								 <p><?=$Title?></p>
+                               
+                                   <h5><?=$price?>/-</h5>
+                                    </div>
+                                
+								<?php for($i=1;$i<=$item_rating;$i++) :  ?>
+
+								<i class="fa fa-star" style="color:red" aria-hidden="true"></i>
+                               <?php  endfor; ?>
+                                     
+                            </div>
+                        </div></a>
+						<?php
+					 }
+						?>
+                        
+                        
+                    </div>
+                </div>
+            </div></br></br>
+
+			<div class="row">
+                <div class="col-12">
+                    <div class="features-slides owl-carousel">
+                     
+					 <?php
+					 $result=select("select * from items where category='Bakery Cakes Dairy'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -261,44 +357,7 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='BakerycakesDairy'");
-					 while($r=mysqli_fetch_array($result))
-					 {
-						 extract($r);
-					 ?>
-                        <a href="view_detail.php?id=<?=$itemid?>"><div class="single-features-area">
-                            <img src="admin/images/<?=$image?>" style="height:200px;width:400px">
-                            <!-- Price -->
-                            <div class="price-start">
-                                </div>
-                            <div class="feature-content d-flex align-items-center justify-content-between" style="height:150px">
-                                <div class="feature-title">
-								 <p><?=$Title?></p>
-                               
-                                   <h5><?=$price?>/-</h5>
-                                    </div>
-                                
-								<?php for($i=1;$i<=$item_rating;$i++) :  ?>
-
-								<i class="fa fa-star" style="color:red" aria-hidden="true"></i>
-                               <?php  endfor; ?>
-                                     
-                            </div>
-                        </div></a>
-						<?php
-					 }
-						?>
-                        
-                        
-                    </div>
-                </div>
-            </div></br></br>
-			<div class="row">
-                <div class="col-12">
-                    <div class="features-slides owl-carousel">
-                     
-					 <?php
-					 $result=select("select * from items where category='SnacksBrandedFoods'");
+					 $result=select("select * from items where category='SNACKS BRANDED FOODS'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -372,7 +431,7 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='Cleaninghousehold'");
+					 $result=select("select * from items where category='CLEANING HOUSE HOLD'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);

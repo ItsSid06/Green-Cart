@@ -1,3 +1,20 @@
+<?php
+try{
+    $db= new mysqli("localhost", "root","", "online_grocery");
+}
+    catch (Exception $exc){
+        echo $exc->getTraceAsString();
+    }
+    if ((isset($_POST['name'])) && isset($_POST['email']) && isset($_POST['subject']) && (isset($_POST['message'])))
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+        $db-> query("INSERT INTO `contact`( `name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$message')");
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +35,29 @@
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
+    <style> 
+    
+    .navbar-brand i.fa-shopping-basket {
+        color: #198754;
+    }
+    .navbar-brand {
+            color: #000
+        }
+    
+        .contact-form-area{
+        width:100%;
+        display:block;
+    }
+    .navbar-brand:hover{
+            color :#FFA500;
+        }
+        .nav-link:hover{
+            color :#FFA500;
+        }    
+
+
+</style>
+
 </head>
 
 <body>
@@ -26,73 +66,60 @@
         <div class="dorne-load"></div>
     </div>
 
-    <!-- ***** Search Form Area ***** -->
-    <div class="dorne-search-form d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-close-btn" id="closeBtn">
-                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
-                    </div>
-                    <form action="#" method="get">
-                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Desire Destinations or Events">
-                        <input type="submit" class="d-none" value="submit">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header_area" id="header">
+    <header class="header_area bg-success" id="header">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        
+                    <a class="navbar-brand" href="index.php"> <i class="fa fa-shopping-basket"> </i> GREEN CART </a>
+                       
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
                             <ul class="navbar-nav mr-auto" id="dorneMenu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="index.php">Home</a>
-                                         <a class="dropdown-item" href="explore.php">Explore</a> -->
-                                        <!-- <a class="dropdown-item" href="listing.php">Listing</a>
-                                        <a class="dropdown-item" href="single-listing.php">Single Listing</a> 
-                                        <a class="dropdown-item" href="contact.php">Contact</a>
-                                    </div> -->
-                                <!-- </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listings <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                        <a class="dropdown-item" href="index.php">Home</a>
-                                         <a class="dropdown-item" href="explore.php">Explore</a> -->
-                                        <!-- <a class="dropdown-item" href="listing.php">Listing</a>
-                                        <a class="dropdown-item" href="single-listing.php">Single Listing</a>
-                                        <a class="dropdown-item" href="contact.php">Contact</a>
-                                    </div>
-                                </li> -->
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="contact.php">Contact</a>
+                                    <a class="nav-link" href="index.php"><span class="sr-only">(current)</span></a>
                                 </li>
+                                <li class="nav-item dropdown">
+                                    
+                                </li>
+                                
                             </ul>
-                            <!-- Search btn -->
-                            <div class="dorne-search-btn">
-                                <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                             <div class="dorne-signin-btn">
+							   <?php
+							   if(isset($_SESSION['login']))
+							   {
+								   ?><a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                              
+								
+                                <a class="nav-link" href="logout.php">Logout</a>
+                                    
+                                    
+                               
+								   
+								   <?php
+							   }
+								   else
+								   {
+									   ?>
+									   
+								<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+			
+                                <a class="nav-link" href="ragister.php">Sign In  or Register</a>
+                                
+                              
+								   <?php
+								   }
+							   
+							   ?>
+                                
                             </div>
-                            <!-- Signin btn -->
-                            <div class="dorne-signin-btn">
-                                <a href="#">Sign In  or Register</a>
-                            </div>
-                            <!-- Add listings btn -->
-                            <div class="dorne-add-listings-btn">
-                                <!-- <a href="#" class="btn dorne-btn">+ Add Listings</a> -->
-                            </div>
+                           
+                            
                         </div>
                     </nav>
                 </div>
@@ -112,11 +139,12 @@
         <div class="contact-form-area equal-height">
             <div class="contact-text">
                 <h4>Hello, Get in touch with us</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur.</p>
+                <p>“Welcome to GreenCart! We’re your go-to destination for fresh, locally-sourced produce. Our mission is to connect farmers with customers, offering healthy, sustainable food options. Since 2020, we’ve partnered directly with local farmers, providing the freshest produce while supporting our community. Thank you for choosing GreenCart—we look forward to serving you!”</p>
+                
                 <div class="contact-info d-lg-flex">
                     <div class="single-contact-info">
-                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Patna, Bihar</h6>
-                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 800012</h6>
+                        <h6> <i class="fa fa-map-marker" aria-hidden="true"></i>Patna, Bihar</h6>
+                        <h6><i class="fa fa-map-pin" aria-hidden="true"></i>800012</h6>
                     </div>
                     <div class="single-contact-info">
                         <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> greencartofficial@gmail.com</h6>
@@ -128,7 +156,7 @@
                 <div class="contact-form-title">
                     <h6>Contact Business</h6>
                 </div>
-                <form action="#">
+                <form method="POST" action="">
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <input type="text" name="name" class="form-control" placeholder="Your Name">
@@ -149,37 +177,10 @@
                 </form>
             </div>
         </div>
-        <!-- Map Area -->
-        <div class="dorne-map-area equal-height">
-            <div id="googleMap"></div>
-        </div>
-    </div>
+
     <!-- ***** Contact Area End ***** -->
 
-    <!-- ****** Footer Area Start ****** -->
-    <footer class="dorne-footer-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 d-md-flex align-items-center justify-content-between">
-                    <div class="footer-text">
-                        <p>
-                           
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved | GREEN CART</a>
 
-                        </p>
-                    </div>
-                    <div class="footer-social-btns">
-                        <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
-                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
-                        <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ****** Footer Area End ****** -->
 
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
@@ -189,9 +190,7 @@
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
     <script src="js/others/plugins.js"></script>
-    <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
-    <script src="js/google-map/map-active.js"></script>
+    
     <!-- Active JS -->
     <script src="js/active.js"></script>
 </body>

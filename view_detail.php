@@ -18,6 +18,14 @@ $result=select("select * from items where itemid='".$_REQUEST['id']."'")
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
+    <style>
+        .navbar-brand {
+            color: #000        }
+        .navbar-brand i.fa-shopping-basket {
+            color: #198754;
+        }
+    </style>
+
 </head>
 
 <body>

@@ -15,7 +15,7 @@ $result=select($q);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    
-    <title> GREEN &amp; CART </title>
+    <title> GREEN CART </title>
 
     
     <link rel="icon" href="img\favicon.PNG">
@@ -25,6 +25,63 @@ $result=select($q);
 
   
     <link href="css/responsive/responsive.css" rel="stylesheet">
+    
+    <style>
+        .navbar-brand {
+            color: #000        }
+        .navbar-brand i.fa-shopping-basket {
+            color: #198754;
+        }
+
+        .single-features-area {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        margin: 20px auto; /* Adjusted margin for better spacing */
+        width: 280px; /* Set width to 25% (4 cards in a row) */
+        transition: transform 0.3s ease-in-out;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: inline-block; /* Display as inline-block to fit 4 in a row */
+        box-sizing: border-box;
+        float: left; /* Use float to achieve a horizontal layout */
+    }
+
+    .single-features-area:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-content {
+        margin-top: 15px;
+    }
+
+    .feature-title p {
+        margin-bottom: 8px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .feature-title h5 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #198754;
+        margin-bottom: 0;
+    }
+
+    .price-start {
+        font-size: 18px;
+        color: #555;
+    }
+
+    /* Clearfix to prevent layout issues */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    </style>
 
 </head>
 
@@ -113,42 +170,30 @@ $result=select($q);
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)"></div>
 	</br>
     
-	 <div class="row">
-                <div class="col-12">
-                    <div class="features-slides owl-carousel">
-                     
-					 <?php
-					 while($r=mysqli_fetch_array($result))
-					 {
-						 extract($r);
-					 ?>
-                        <div class="single-features-area">
-                            <a href="view_detail.php?id=<?=$itemid?>"><img src="admin/images/<?=$image?>" style="height:200px;width:400px">
-                            <!-- Price -->
-                            <div class="price-start">
-                                </div>
-                            <div class="feature-content d-flex align-items-center justify-content-between" style="height:150px">
-                                <div class="feature-title">
-								 <p><?=$Title?></p>
-                               
-                                   <h5><?=$price?>/-</h5></br>
-								     </div>
-                                
-								<?php for($i=1;$i<=$item_rating;$i++) :  ?>
-
-								<i class="fa fa-star" style="color:red" aria-hidden="true"></i>
-                               <?php  endfor; ?>
-                                    
-                            </div></a>
-                        </div>
-						<?php
-					 }
-						?>
-                        
-                        
-                    </div>
+    <div class="row" style="padding-left:3rem; display:flex;">
+        <?php
+        while ($r = mysqli_fetch_array($result)) {
+            extract($r);
+        ?>
+            <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single-features-area">
+                    <a href="view_detail.php?id=<?= $itemid ?>"><img src="admin/images/<?= $image ?>" style="height:200px;width:400px">
+                        <div class="price-start"></div>
+                        <div class="feature-content d-flex align-items-center justify-content-between" style="height:150px">
+                            <div class="feature-title">
+                                <p><?= $Title ?></p>
+                                <h5><?= $price ?>/-</h5><br>
+                            </div>
+                            <?php for ($i = 1; $i <= $item_rating; $i++) : ?>
+                                <i class="fa fa-star" style="color:red" aria-hidden="true"></i>
+                            <?php endfor; ?>
+                        </div></a>
                 </div>
             </div>
+        <?php
+        }
+        ?>
+    </div>
 	
 	<footer class="dorne-footer-area">
         <div class="container-fluid">
