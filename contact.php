@@ -36,24 +36,43 @@ try{
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
     <style> 
+
+.header_area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: #c0d56f; /* Add this line to set the background color */
+    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #c0d56f;
+    border-bottom: 1px solid transparent;
+    height: 90px;
+}
     
-    .navbar-brand i.fa-shopping-basket {
-        color: #198754;
-    }
     .navbar-brand {
             color: #000
         }
     
         .contact-form-area{
+        text-align:center;
         width:100%;
-        display:block;
+        display:center;
     }
     .navbar-brand:hover{
             color :#FFA500;
         }
         .nav-link:hover{
             color :#FFA500;
-        }    
+        }
+        
+        .contact-text{
+            text-align:justify;
+        }
+
 
 
 </style>
@@ -69,14 +88,14 @@ try{
     
     
 
-    <header class="header_area bg-success" id="header">
+    <header class="header_area bg-#c0d56f" id="header">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        
-                    <a class="navbar-brand" href="index.php"> <i class="fa fa-shopping-basket"> </i> GREEN CART </a>
-                       
+                    <a class="navbar-brand" href="index.php">
+                    <img src="img\favicona.PNG" alt="" style= "height: 150px; width: auto; margin-right:0px">
+
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
@@ -129,24 +148,24 @@ try{
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)">
+    <div class="breadcumb-area" style="background-image: url(img/bg-img/hero-1.jpg)">
     </div>
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- ***** Contact Area Start ***** -->
-    <div class="dorne-contact-area d-md-flex" id="contact">
+    <div class="dorne-contact-area d-md-flex justify-content-center" id="contact">
         <!-- Contact Form Area -->
         <div class="contact-form-area equal-height">
             <div class="contact-text">
                 <h4>Hello, Get in touch with us</h4>
-                <p>“Welcome to GreenCart! We’re your go-to destination for fresh, locally-sourced produce. Our mission is to connect farmers with customers, offering healthy, sustainable food options. Since 2020, we’ve partnered directly with local farmers, providing the freshest produce while supporting our community. Thank you for choosing GreenCart—we look forward to serving you!”</p>
+                <p>“Welcome To Green Cart! We’re Your Go-To Destination For Fresh, Locally-Sourced Produce. Our Mission Is To Connect Farmers With Customers, Offering Healthy, Sustainable Food Options. Since 2020, We’ve Partnered Directly With Local Farmers, Providing The Freshest Produce While Supporting Our Community. Thank You For Choosing Green Cart—We Look Forward To Serving You!”</p>
                 
-                <div class="contact-info d-lg-flex">
+                <div class="contact-info d-lg-flex justify-content-center">
                     <div class="single-contact-info">
                         <h6> <i class="fa fa-map-marker" aria-hidden="true"></i>Patna, Bihar</h6>
                         <h6><i class="fa fa-map-pin" aria-hidden="true"></i>800012</h6>
                     </div>
-                    <div class="single-contact-info">
+                    <div class="single-contact-info justify-content-center">
                         <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> greencartofficial@gmail.com</h6>
                         <h6><i class="fa fa-phone" aria-hidden="true"></i> +91 9122974807</h6>
                     </div>
@@ -193,6 +212,17 @@ try{
     
     <!-- Active JS -->
     <script src="js/active.js"></script>
+
+    <script>
+    window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    if (window.scrollY > 0) {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when scrolled
+    } else {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when at the top
+    }
+});
+</script>
 </body>
 
 </html>

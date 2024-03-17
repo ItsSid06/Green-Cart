@@ -27,6 +27,22 @@ $result=select($q);
     <link href="css/responsive/responsive.css" rel="stylesheet">
     
     <style>
+
+.header_area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: #c0d56f; /* Add this line to set the background color */
+    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #c0d56f;
+    border-bottom: 1px solid transparent;
+    height: 90px;
+}
         .navbar-brand {
             color: #000        }
         .navbar-brand i.fa-shopping-basket {
@@ -109,12 +125,13 @@ $result=select($q);
     </div>
 
     
-    <header class="header_area" id="header">
+    <header class="header_area bg-#c0d56f" id="header">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.php"> <i class="fa fa-shopping-basket"> </i> GREEN CART </a>
+                    <a class="navbar-brand" href="index.php"> 
+                    <img src="img\favicona.PNG" alt="" style= "height: 150px; width: auto; margin-right:0px">
                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->
@@ -167,7 +184,7 @@ $result=select($q);
         </div>
     </header>
     
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)"></div>
+    <div class="breadcumb-area" style="background-image: url(img/bg-img/hero-1.jpg)"></div>
 	</br>
     
     <div class="row" style="padding-left:3rem; display:flex;">
@@ -222,6 +239,17 @@ $result=select($q);
     <script src="js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="js/active.js"></script>
+
+    <script>
+    window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    if (window.scrollY > 0) {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when scrolled
+    } else {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when at the top
+    }
+});
+</script>
 </body>
 
 </html>

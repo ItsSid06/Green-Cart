@@ -135,7 +135,7 @@ $result2=select("select * from user where userid='".$_SESSION['userid']."'");
         </div>
         <br>
 
-<h4 class="container"> Thank you for Ordering at Online Grocery Shopping'! The ordering process is now complete.</h4>
+<h4 class="container"> Thank You For Ordering at Green Cart ! The Ordering Process Is Now Complete.</h4>
 
 <?php 
   $num1 = rand(1000,9999); 
@@ -150,7 +150,7 @@ $result2=select("select * from user where userid='".$_SESSION['userid']."'");
 </div>
         
 <div class="container">
-     <a href="index.php"  class="btn btn-primary">Continue shopping</a>
+     <a href="index.php"  class="btn btn-primary">Continue Shopping</a>
   </div>
   <!-- <?
 

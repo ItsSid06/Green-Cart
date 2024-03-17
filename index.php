@@ -19,37 +19,36 @@ require_once"dbconfig.php";
 
     <style>
 
-        .header_area{
-            
-            position: fixed;
-	top: 0; left: 0; right: 0;
-    z-index: 1000;
-	display:flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 2rem 9%;
-	background: #fff;
-	box-shadow: var(--box-shadow);
-    
 
-    .header_area{
-        color : #341a79;
-    background-color: #ffffff;
-    height: 80px;
-    z-index: 9999;
-    border-bottom: 1px solid transparent;
+.bg-img {
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    background-size: cover; /* Ensure the background image covers the entire element */
+    background-position: center; /* Center the background image */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); /* Add drop shadow effect directly to the background image */
 }
-    
-        }
+
+.header_area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: #c0d56f; /* Add this line to set the background color */
+    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #c0d56f;
+    border-bottom: 1px solid transparent;
+    height: 90px;
+}
         
          .dorne-signin-btn .nav-link {
         color: black;
     }
         .navbar-brand {
             color: #000
-        }
-        .navbar-brand i.fa-shopping-basket {
-            color: #198754;
         }
 
         .bg-img {
@@ -113,12 +112,15 @@ $('.navbar-light .dmenu').hover(function () {
         <div class="dorne-load"></div>
     </div>
 
-   <header class="header_area bg-#000" id="header">
+   <header class="header_area bg-#c0d56f" id="header">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.php"> <i class="fa fa-shopping-basket"> </i> GREEN CART </a>
+                    <a class="navbar-brand" href="index.php">
+    <img src="img\favicona.PNG" alt="" style= "height: 150px; width: auto; margin-right:0px">
+    
+</a>
                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->
@@ -140,9 +142,8 @@ $('.navbar-light .dmenu').hover(function () {
                               
 								<a class="nav-link" href="mycart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart</a>
 								<a class="nav-link" href="category.php">Category</a>
-                                <a class="nav-link" href="contact.php">Contact</a>
-                              
-                                    <a class="nav-link" href="logout.php">Logout</a>
+                                <a class="nav-link" href="contact.php"> Contact Us</a>
+                                <a class="nav-link" href="logout.php"><i class="fa fa-user" aria-hidden="true"></i> Logout</a>
                                     
                                     
                                
@@ -176,6 +177,7 @@ $('.navbar-light .dmenu').hover(function () {
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6"></br></br>
+                <div class="shadow-wrapper">
                     <div class="hero-content"></br></br></br></br></br>
                         
                               <h1 style="color:white;font-weight:bold;  text-shadow: 2px 2px 14px #7546E4;">SEARCH YOUR PRODUCT</h1>
@@ -499,6 +501,17 @@ $('.navbar-light .dmenu').hover(function () {
     <script src="js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="js/active.js"></script>
+
+    <script>
+window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    if (window.scrollY > 0) {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when scrolled
+    } else {
+        header.style.backgroundColor = '#c0d56f'; // Set background color when at the top
+    }
+});
+</script>
 </body>
 
 </html>
