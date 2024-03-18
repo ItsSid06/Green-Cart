@@ -40,7 +40,17 @@ $result=select("SELECT DISTINCT category FROM items" );
     border-bottom: 1px solid transparent;
     height: 90px;
 }
+.dorne-signin-btn .nav-link {
+        color: black;
+    }
+    .navbar-brand:hover{
+            color :#008000;
+        }
 
+        .nav-link:hover{
+            color :#008000;
+        }
+    
 
     </style>
 
@@ -104,14 +114,14 @@ $result=select("SELECT DISTINCT category FROM items" );
 								<a class="nav-link" href="mycart.php">My Cart</a>
 								<a class="nav-link" href="mycart.php">Category</a>
                               
-                                	<a class="nav-link" href="logout.php">Logout</a>
+                                <a class="nav-link" href="logout.php">Logout</a>
 								   
 								   <?php
 							   }
 								   else
 								   {
 									   ?>
-									   <a href="ragister.php">Sign In  or Register</a>
+								<a class="nav-link" href="ragister.php">Sign In  or Register</a>
 								<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 								
 								   <?php

@@ -8,9 +8,8 @@
 
 /* Base CSS */
 
-body{
-    background: #eee;
-    font-family: Poppins;
+.body {
+    font-family: 'Poppins', sans-serif;
 }
 
 section{
@@ -1061,6 +1060,7 @@ li {
     border: none;
     border-radius: 0;
     margin-bottom: 30px;
+    width: 120px;
 }
 
 .contact-form textarea.form-control {

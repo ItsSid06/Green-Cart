@@ -72,6 +72,23 @@ try{
         .contact-text{
             text-align:justify;
         }
+        .contact-text h4{
+            text-align:center;
+        }
+        .contact-text h4 span{
+            color:green;
+        }
+        .dorne-signin-btn .nav-link {
+        color: black;
+    }
+        
+        .navbar-brand:hover{
+            color :#008000;
+        }
+
+        .nav-link:hover{
+            color :#008000;
+        }
 
 
 
@@ -157,7 +174,7 @@ try{
         <!-- Contact Form Area -->
         <div class="contact-form-area equal-height">
             <div class="contact-text">
-                <h4>Hello, Get in touch with us</h4>
+                <h4>Hello, Get in <span> touch</span> with us</h4>
                 <p>“Welcome To Green Cart! We’re Your Go-To Destination For Fresh, Locally-Sourced Produce. Our Mission Is To Connect Farmers With Customers, Offering Healthy, Sustainable Food Options. Since 2020, We’ve Partnered Directly With Local Farmers, Providing The Freshest Produce While Supporting Our Community. Thank You For Choosing Green Cart—We Look Forward To Serving You!”</p>
                 
                 <div class="contact-info d-lg-flex justify-content-center">

@@ -97,6 +97,16 @@ $result=select($q);
         clear: both;
         display: table;
     }
+    .dorne-signin-btn .nav-link {
+        color: black;
+    }
+    .navbar-brand:hover{
+            color :#008000;
+        }
+
+        .nav-link:hover{
+            color :#008000;
+        }
     </style>
 
 </head>
@@ -166,7 +176,7 @@ $result=select($q);
 								   else
 								   {
 									   ?>
-									   <a href="ragister.php">Sign In  or Register</a>
+								<a class="nav-link" href="ragister.php">Sign In  or Register</a>
 								<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 								
 								   <?php

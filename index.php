@@ -10,7 +10,9 @@ require_once"dbconfig.php";
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <title>Green Cart</title>
+    <title>Green Cart</title>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
      <link href="style.css" rel="stylesheet">
      <link rel="icon" type="image/x-icon" href="img\favicon.PNG">
@@ -44,7 +46,7 @@ require_once"dbconfig.php";
     height: 90px;
 }
         
-         .dorne-signin-btn .nav-link {
+        .dorne-signin-btn .nav-link {
         color: black;
     }
         .navbar-brand {
@@ -56,20 +58,36 @@ require_once"dbconfig.php";
         }
         
         .navbar-brand:hover{
-            color :#FFA500;
+            color :#008000;
         }
 
         .nav-link:hover{
-            color :#FFA500;
+            color :#008000;
         }
-
-        .navbar-brand {
-        color: #000;
+    
+    .hero-content h3 {
+        text-align:center;
     }
-
-    .navbar-brand i.fa-shopping-basket {
-        color: #198754;
+    .hero-content h3 span {
+        color:green;
     }
+    .hero-content p {
+        text-align:center;
+    }
+    .hero-content p span {
+        color:green;
+    }
+    .hero-content h5{
+        text-align:center;
+    }
+    .hero-content h5 span{
+        color:green;
+    }
+    .d-flex {
+    align-items: center;
+}
+
+
     </style>
 
 <script src="jquery.min.js"></script>
@@ -178,33 +196,32 @@ $('.navbar-light .dmenu').hover(function () {
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6"></br></br>
                 <div class="shadow-wrapper">
-                    <div class="hero-content"></br></br></br></br></br>
-                        
-                              <h1 style="color:white;font-weight:bold;  text-shadow: 2px 2px 14px #7546E4;">SEARCH YOUR PRODUCT</h1>
-                        
-                    </div>
                     
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-4">
-<form class="form-inline" method="post" action="search_view.php">  
+                <div class="hero-content"></br></br>
+                <h3>Fresh And <span> Organic </span> Products For You </h3>
+                <p>“ Freshness Delivered To Your Doorstep ” </p>
+                <h5> Search <span> Your </span> Products </h5>
+                </div>
+                    
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<form class="d-flex" method="post" action="search_view.php">  
 
   
-  <div class="form-group ">
-    <input type="text" class="form-control" name= "country" id="country"  placeholder="Type here...">
-  </div>
-  </div><div class="col-lg-4">
+<div class="form-group mr-2">
+<input type="text" class="form-control" name= "country" id="country"  placeholder="Type here...">
+</div>
 
-  <div class="form-group ">
+<div class="form-group mr-2">
 <select class="form-control" name="category">
-<option>Select</option>
-<option value="Fruit Vegetables">Fruits & Vegetables</option>
-<option value="Food Grains & Oil"> Food Grains & Oil</option>
-<!-- <option value="BAKERY & CAKES">BAKERY & CAKES</option> -->
-<option value="Bakery & Cakes ">Bakery Cakes & Dairy</option>
-<option value="SnacksBrandedFoods">Snacks & Foods</option>
+<option> Select..</option>
+<option value="Fruits And Vegetables">Fruits And Vegetables</option>
+<option value="Foodgrains, Oils And Spices"> Foodgrains, Oils And Spices</option>
+<option value="Bakery, Cakes And Dairy">Bakery, Cakes And Dairy</option>
+<option value="Snacks">Snacks</option>
 <option value="Beverage">Beverage</option>
-<option value="CLEANING HOUSE HOLD">CLEANING HOUSE HOLD</option>
+<option value="Cleaning Household">Cleaning Households</option>
 </select>
 
 
@@ -247,7 +264,7 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='FruitVegetables'");
+					 $result=select("select * from items where category='Fruits And Vegetables'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -284,7 +301,7 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='Food Grainsoil Masala'");
+					 $result=select("select * from items where category='Foodgrains, Oils And Spices'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -322,7 +339,7 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='Bakery Cakes Dairy'");
+					 $result=select("select * from items where category='Bakery, Cakes And Dairy'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -359,7 +376,8 @@ $('.navbar-light .dmenu').hover(function () {
                     <div class="features-slides owl-carousel">
                      
 					 <?php
-					 $result=select("select * from items where category='SNACKS BRANDED FOODS'");
+					 $result=select("select * from items where category='	
+                     Snacks'");
 					 while($r=mysqli_fetch_array($result))
 					 {
 						 extract($r);
@@ -479,10 +497,8 @@ $('.navbar-light .dmenu').hover(function () {
             <div class="row">
                 <div class="col-12 d-md-flex align-items-center justify-content-between">
                     <div class="footer-text">
-                        <p>
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GREEN CART </a>
-
-                        </p>
+                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GREEN CART <a> </p>
+                        
                     </div>
                     
                 </div>
